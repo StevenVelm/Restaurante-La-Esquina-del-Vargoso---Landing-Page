@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Esquina del Vargoso — Menestra, Parrilla y Sabor Ecuatoriano en Manta</title>
+<meta name="description" content="Restaurante en Manta, junto a Plaza 2000. Arroz con menestra y carnes a la parrilla desde 2016. Aquí la menestra tiene nombre propio.">
+<meta property="og:title" content="La Esquina del Vargoso — Manta">
+<meta property="og:description" content="Si se trata de menestra, el Vargoso es el indicado. Desde 2016, junto a Plaza 2000.">
+<meta property="og:type" content="restaurant.restaurant">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.laesquinadelvargoso.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "La Esquina del Vargoso",
+  "servesCuisine": "Ecuatoriana",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Junto a Plaza 2000",
+    "addressLocality": "Manta",
+    "addressCountry": "EC"
+  },
+  "openingHours": "Mo-Su 11:00-22:00",
+  "servesCuisine": "Ecuatoriana, Parrilla"
+}
+</script>
+<style>
+  :root{
+    --carbon:#1a1512;
+    --carbon-soft:#241d18;
+    --crema:#f4ecdd;
+    --crema-soft:#ece0cb;
+    --terracota:#b64a2c;
+    --terracota-deep:#8f3a22;
+    --mostaza:#d9a441;
+    --verde:#2b3a2c;
+    --line: rgba(244,236,221,0.14);
+    --line-dark: rgba(26,21,18,0.12);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--crema);
+    color:var(--carbon);
+    font-family:'Manrope',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.72rem;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  button{font-family:inherit;cursor:pointer}
+  .container{max-width:1240px;margin:0 auto;padding-left:24px;padding-right:24px}
+  @media(min-width:768px){.container{padding-left:48px;padding-right:48px}}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* NAVBAR */
+  .navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:all .4s ease;}
+  .navbar.scrolled{padding:12px 0;background:rgba(26,21,18,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;color:var(--crema)}
+  .nav-logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;letter-spacing:.01em;display:flex;align-items:center;gap:10px}
+  .nav-logo .mark{width:30px;height:30px;border-radius:50%;background:var(--terracota);position:relative;flex-shrink:0}
+  .nav-logo .mark::after{content:"";position:absolute;inset:6px;border:1.5px solid var(--mostaza);border-radius:50%}
+  .nav-links{display:none;gap:34px;align-items:center;font-size:.88rem;font-weight:600}
+  @media(min-width:900px){.nav-links{display:flex}}
+  .nav-links a{opacity:.82;transition:opacity .25s ease;position:relative}
+  .nav-links a:hover{opacity:1}
+  .nav-cta{background:var(--terracota);color:var(--crema);padding:10px 20px;border-radius:100px;font-weight:700;font-size:.85rem;letter-spacing:.02em;transition:transform .25s ease, background .25s ease;display:none}
+  @media(min-width:900px){.nav-cta{display:inline-block}}
+  .nav-cta:hover{background:var(--mostaza);color:var(--carbon);transform:translateY(-2px)}
+  .burger{display:flex;flex-direction:column;gap:5px;background:none;border:none;padding:6px}
+  @media(min-width:900px){.burger{display:none}}
+  .burger span{width:22px;height:2px;background:var(--crema);display:block;transition:.3s}
+
+  .mobile-menu{position:fixed;inset:0;background:var(--carbon);z-index:99;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:32px;transform:translateY(-100%);transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+  .mobile-menu.open{transform:translateY(0)}
+  .mobile-menu a{color:var(--crema);font-family:'Fraunces',serif;font-size:2rem;font-weight:500}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--carbon);color:var(--crema);overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 62%;
+    background-image:linear-gradient(180deg, rgba(26,21,18,.15) 0%, rgba(26,21,18,.35) 55%, rgba(26,21,18,.94) 100%), url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1800&auto=format&fit=crop');
+    transform:scale(1.06);
+    transition:transform .6s ease-out;
+  }
+  .hero-content{position:relative;z-index:2;padding:0 24px 68px;width:100%}
+  @media(min-width:768px){.hero-content{padding:0 48px 100px}}
+  .hero-eyebrow{color:var(--mostaza);margin-bottom:18px}
+  .hero h1{font-size:clamp(2.4rem,7.2vw,5.6rem);line-height:.98;font-weight:700;letter-spacing:-.01em;max-width:16ch;margin:0 0 22px}
+  .hero h1 em{font-style:italic;color:var(--mostaza);font-weight:500}
+  .hero p{font-size:clamp(1rem,1.6vw,1.25rem);max-width:38ch;opacity:.86;margin:0 0 34px;line-height:1.5}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+  .btn-primary{background:var(--terracota);color:var(--crema);padding:16px 30px;border-radius:100px;font-weight:700;font-size:.95rem;display:inline-flex;align-items:center;gap:10px;transition:transform .3s cubic-bezier(.2,.8,.2,1), background .3s ease;border:none}
+  .btn-primary:hover{background:var(--mostaza);color:var(--carbon);transform:translateY(-3px)}
+  .btn-ghost{border:1.5px solid rgba(244,236,221,.4);color:var(--crema);padding:15px 28px;border-radius:100px;font-weight:700;font-size:.95rem;transition:all .3s ease}
+  .btn-ghost:hover{border-color:var(--crema);background:rgba(244,236,221,.08)}
+  .hero-tag{position:absolute;top:130px;right:24px;z-index:2;background:rgba(26,21,18,.55);backdrop-filter:blur(6px);border:1px solid var(--line);color:var(--crema);padding:12px 18px;border-radius:16px;font-size:.78rem;max-width:180px;display:none}
+  @media(min-width:768px){.hero-tag{display:block;right:48px}}
+  .hero-tag b{display:block;font-family:'Fraunces',serif;font-size:1rem;color:var(--mostaza);margin-bottom:2px}
+  .hero-scroll{position:absolute;bottom:26px;left:24px;z-index:2;color:var(--crema);opacity:.6;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+  @media(min-width:768px){.hero-scroll{left:48px}}
+  .hero-scroll::after{content:"";width:1px;height:34px;background:var(--crema);opacity:.5;animation:scrollLine 2s ease-in-out infinite}
+  @keyframes scrollLine{0%,100%{transform:scaleY(.3);opacity:.2}50%{transform:scaleY(1);opacity:.7}}
+
+  /* SECTION GENERIC */
+  section{position:relative}
+  .section-pad{padding:100px 0}
+  @media(max-width:640px){.section-pad{padding:72px 0}}
+  .eyebrow-terra{color:var(--terracota)}
+  .section-title{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:600;line-height:1.04;letter-spacing:-.01em;margin:14px 0 0}
+
+  /* EL MATHI */
+  .mathi{background:var(--carbon);color:var(--crema)}
+  .mathi-grid{display:grid;grid-template-columns:1fr;gap:56px;align-items:center}
+  @media(min-width:960px){.mathi-grid{grid-template-columns:1fr 1fr;gap:80px}}
+  .mathi-img-wrap{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5}
+  .mathi-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .mathi-img-wrap:hover img{transform:scale(1.045)}
+  .mathi-badge{position:absolute;bottom:20px;left:20px;background:var(--terracota);color:var(--crema);padding:10px 18px;border-radius:100px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .mathi-items{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:36px 0 40px}
+  .mathi-item{border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .mathi-item .n{font-family:'Fraunces',serif;font-style:italic;color:var(--mostaza);font-size:1.35rem;display:block;margin-bottom:2px}
+  .mathi-item .l{font-size:.82rem;opacity:.75}
+  .mathi p.lede{font-size:1.15rem;opacity:.85;max-width:46ch;line-height:1.6;margin:18px 0 0}
+
+  /* SPECIALTIES */
+  .card-grid{display:grid;grid-template-columns:1fr;gap:26px;margin-top:56px}
+  @media(min-width:640px){.card-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.card-grid{grid-template-columns:repeat(3,1fr)}}
+  .dish-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 1px 2px rgba(26,21,18,.04);transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;border:1px solid var(--line-dark)}
+  .dish-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px -18px rgba(26,21,18,.28)}
+  .dish-img{aspect-ratio:5/4;overflow:hidden;position:relative}
+  .dish-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .dish-card:hover .dish-img img{transform:scale(1.08)}
+  .dish-tag{position:absolute;top:12px;left:12px;background:var(--carbon);color:var(--crema);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:6px 12px;border-radius:100px}
+  .dish-body{padding:22px 22px 24px}
+  .dish-body h3{font-size:1.28rem;margin:0 0 4px;font-weight:600}
+  .dish-body .sub{color:var(--terracota);font-size:.85rem;font-weight:700;margin-bottom:10px;font-style:italic;font-family:'Fraunces',serif}
+  .dish-body p{font-size:.9rem;color:#4a4038;line-height:1.5;margin:0 0 16px}
+  .dish-foot{display:flex;align-items:center;justify-content:space-between}
+  .price{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;color:var(--carbon)}
+  .dish-cta{font-size:.82rem;font-weight:700;color:var(--terracota);display:flex;align-items:center;gap:6px}
+
+  /* MENU */
+  .menu-section{background:var(--crema-soft)}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin:40px 0 44px}
+  .filter-btn{padding:11px 20px;border-radius:100px;border:1.5px solid var(--line-dark);background:transparent;font-weight:700;font-size:.84rem;color:var(--carbon);transition:all .25s ease}
+  .filter-btn:hover{border-color:var(--terracota)}
+  .filter-btn.active{background:var(--carbon);border-color:var(--carbon);color:var(--crema)}
+  .menu-list{display:none;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line-dark)}
+  .menu-list.active{display:grid}
+  @media(min-width:768px){.menu-list{grid-template-columns:1fr 1fr;column-gap:48px}}
+  .menu-row{display:flex;justify-content:space-between;gap:16px;padding:22px 0;border-bottom:1px solid var(--line-dark)}
+  .menu-row .l h4{margin:0 0 4px;font-family:'Fraunces',serif;font-size:1.12rem;font-weight:600}
+  .menu-row .l .note{font-size:.82rem;font-style:italic;color:var(--terracota);font-family:'Fraunces',serif;margin-bottom:5px}
+  .menu-row .l p{margin:0;font-size:.85rem;color:#5a5045;line-height:1.5;max-width:38ch}
+  .menu-row .r{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;white-space:nowrap;padding-top:2px}
+
+  /* STORY */
+  .story{background:var(--carbon);color:var(--crema)}
+  .story-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+  @media(min-width:960px){.story-grid{grid-template-columns:.85fr 1.15fr}}
+  .story-year{font-family:'Fraunces',serif;font-size:clamp(5rem,16vw,11rem);font-weight:700;line-height:.8;color:var(--terracota);letter-spacing:-.02em}
+  .story-img{border-radius:20px;overflow:hidden;aspect-ratio:16/10}
+  .story-img img{width:100%;height:100%;object-fit:cover}
+  .story-text p{font-size:1.1rem;line-height:1.65;opacity:.85;max-width:52ch;margin:0 0 20px}
+
+  /* WHY */
+  .pillars{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:20px;overflow:hidden;margin-top:56px}
+  @media(min-width:768px){.pillars{grid-template-columns:repeat(4,1fr)}}
+  .pillar{background:var(--crema);padding:36px 28px}
+  .pillar .ic{font-family:'Fraunces',serif;font-style:italic;color:var(--terracota);font-size:2rem;margin-bottom:16px;display:block}
+  .pillar h3{font-size:1.1rem;margin:0 0 8px}
+  .pillar p{font-size:.86rem;color:#5a5045;line-height:1.5;margin:0}
+
+  /* GALLERY */
+  .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:56px}
+  @media(min-width:768px){.gallery-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:180px}}
+  .g-item{border-radius:16px;overflow:hidden}
+  .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .g-item:hover img{transform:scale(1.07)}
+  @media(min-width:768px){
+    .g-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+    .g-item:nth-child(4){grid-row:span 2}
+    .g-item:nth-child(6){grid-column:span 2}
+  }
+  .g-item{aspect-ratio:1/1}
+  @media(min-width:768px){.g-item{aspect-ratio:auto}}
+
+  /* TESTIMONIALS */
+  .test-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:56px}
+  @media(min-width:768px){.test-grid{grid-template-columns:repeat(3,1fr)}}
+  .test-card{background:#fff;border:1px solid var(--line-dark);border-radius:18px;padding:30px}
+  .stars{color:var(--mostaza);letter-spacing:2px;margin-bottom:16px;font-size:1rem}
+  .test-card p{font-size:.98rem;line-height:1.6;margin:0 0 18px;color:var(--carbon)}
+  .test-card .who{font-size:.82rem;font-weight:700;color:var(--terracota)}
+
+  /* INSTAGRAM */
+  .insta{background:var(--verde);color:var(--crema)}
+  .insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:44px}
+  @media(min-width:768px){.insta-grid{grid-template-columns:repeat(6,1fr)}}
+  .insta-item{aspect-ratio:1/1;border-radius:12px;overflow:hidden;position:relative}
+  .insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .insta-item:hover img{transform:scale(1.1)}
+
+  /* CTA BIG */
+  .cta-big{background:var(--terracota);color:var(--crema);text-align:center}
+  .cta-big h2{font-size:clamp(2.4rem,7vw,5rem);font-weight:700;line-height:.98;margin:0 0 18px}
+  .cta-big p{font-size:1.15rem;opacity:.92;margin:0 0 40px}
+  .cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .btn-light{background:var(--carbon);color:var(--crema);padding:17px 32px;border-radius:100px;font-weight:700;transition:transform .3s ease}
+  .btn-light:hover{transform:translateY(-3px)}
+  .btn-outline-light{border:1.5px solid rgba(244,236,221,.55);color:var(--crema);padding:16px 30px;border-radius:100px;font-weight:700;transition:all .3s ease}
+  .btn-outline-light:hover{background:rgba(244,236,221,.12)}
+
+  /* LOCATION */
+  .loc-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:48px}
+  @media(min-width:960px){.loc-grid{grid-template-columns:1fr 1fr}}
+  .map-box{border-radius:20px;overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line-dark)}
+  .info-list{display:flex;flex-direction:column;gap:0}
+  .info-row{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line-dark)}
+  .info-row:first-child{padding-top:0}
+  .info-row .lbl{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--terracota);width:110px;flex-shrink:0;padding-top:2px}
+  .info-row .val{font-size:1.05rem;font-family:'Fraunces',serif}
+
+  /* FOOTER */
+  footer{background:var(--carbon);color:var(--crema);padding:64px 0 28px}
+  .foot-grid{display:grid;grid-template-columns:1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line)}
+  @media(min-width:768px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+  .foot-brand p{opacity:.7;font-size:.9rem;max-width:32ch;line-height:1.5;margin-top:12px}
+  footer h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;opacity:.55;margin:0 0 16px}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:.9rem}
+  footer ul a{opacity:.8;transition:opacity .2s}
+  footer ul a:hover{opacity:1}
+  .foot-bottom{display:flex;flex-direction:column;gap:10px;padding-top:26px;font-size:.78rem;opacity:.55}
+  @media(min-width:768px){.foot-bottom{flex-direction:row;justify-content:space-between}}
+
+  /* FLOATING WHATSAPP */
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:90;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s ease}
+  .wa-float:hover{transform:scale(1.08)}
+  .mobile-cta-bar{position:fixed;bottom:0;left:0;right:0;z-index:80;background:var(--carbon);padding:12px 16px;display:flex;gap:10px;border-top:1px solid var(--line)}
+  @media(min-width:768px){.mobile-cta-bar{display:none}}
+  .mobile-cta-bar a{flex:1;text-align:center;padding:13px;border-radius:100px;font-weight:700;font-size:.88rem}
+  .mobile-cta-bar .mp1{background:var(--terracota);color:var(--crema)}
+  .mobile-cta-bar .mp2{border:1.5px solid rgba(244,236,221,.4);color:var(--crema)}
+  body{padding-bottom:0}
+  @media(max-width:767px){ body{padding-bottom:70px} }
+
+  :focus-visible{outline:2px solid var(--terracota);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#inicio" class="nav-logo"><span class="mark"></span>La Esquina del Vargoso</a>
+    <div class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#menu">Menú</a>
+      <a href="#historia">Nosotros</a>
+      <a href="#galeria">Galería</a>
+      <a href="#ubicacion">Ubicación</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="https://wa.me/593999999999" class="nav-cta">Pedir ahora</a>
+      <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio">Inicio</a>
+  <a href="#menu">Menú</a>
+  <a href="#historia">Nosotros</a>
+  <a href="#galeria">Galería</a>
+  <a href="#ubicacion">Ubicación</a>
+  <a href="https://wa.me/593999999999" style="color:var(--mostaza)">Pedir ahora →</a>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="inicio">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-tag"><b>El Mathi</b>Nuestro favorito desde 2016</div>
+  <div class="hero-content">
+    <div class="eyebrow hero-eyebrow">Manta · Junto a Plaza 2000 · Desde 2016</div>
+    <h1>Si se trata de <em>menestra</em>,<br>el Vargoso es el indicado.</h1>
+    <p>Arroz, menestra y parrilla — hechos como deben ser. La cuchara ya sabe el camino.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/593999999999" class="btn-primary">Pedir ahora →</a>
+      <a href="#menu" class="btn-ghost">Ver menú</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Desliza</div>
+</header>
+
+<!-- EL MATHI -->
+<section class="mathi section-pad" id="el-mathi">
+  <div class="container mathi-grid">
+    <div class="reveal">
+      <div class="mathi-img-wrap">
+        <img src="https://images.unsplash.com/photo-1598515213692-5f252f4f8b21?q=80&w=1200&auto=format&fit=crop" alt="Menestra El Mathi: arroz, menestra de lenteja y carne a la parrilla servidos en plato de barro">
+        <span class="mathi-badge">El favorito de Manta</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow eyebrow-terra" style="color:var(--mostaza)">El plato de la casa</div>
+      <h2 class="section-title">El Mathi</h2>
+      <p class="lede">La menestra que todos vienen a buscar. Cremosa, con el punto justo de fondo, acompañada de arroz suelto y carne a la parrilla que se corta sola. El Mathi no se explica. Se prueba.</p>
+      <div class="mathi-items">
+        <div class="mathi-item"><span class="n">01</span><span class="l">Arroz</span></div>
+        <div class="mathi-item"><span class="n">02</span><span class="l">Menestra</span></div>
+        <div class="mathi-item"><span class="n">03</span><span class="l">Carne a la parrilla</span></div>
+        <div class="mathi-item"><span class="n">04</span><span class="l">Guarnición de la casa</span></div>
+      </div>
+      <a href="https://wa.me/593999999999" class="btn-primary">Quiero probarlo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section class="section-pad" id="especialidades">
+  <div class="container">
+    <div class="eyebrow eyebrow-terra reveal">Especialidades</div>
+    <h2 class="section-title reveal">Lo bueno se comparte.</h2>
+    <div class="card-grid">
+
+      <div class="dish-card reveal">
+        <div class="dish-img">
+          <img src="https://images.unsplash.com/photo-1598515213692-5f252f4f8b21?q=80&w=800&auto=format&fit=crop" alt="Menestra El Mathi">
+          <span class="dish-tag">El más pedido</span>
+        </div>
+        <div class="dish-body">
+          <h3>Menestra El Mathi</h3>
+          <div class="sub">La consentida de la casa</div>
+          <p>Menestra de lenteja, arroz y carne a la parrilla. El clásico que le da nombre a la esquina.</p>
+          <div class="dish-foot"><span class="price">$6.50</span><a href="https://wa.me/593999999999" class="dish-cta">Pedir →</a></div>
+        </div>
+      </div>
+
+      <div class="dish-card reveal">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Parrillada del Vargoso"></div>
+        <div class="dish-body">
+          <h3>Parrillada del Vargoso</h3>
+          <div class="sub">Aquí sí se vino a comer</div>
+          <p>Selección de carnes a la parrilla con arroz, menestra y patacones. Para compartir o no.</p>
+          <div class="dish-foot"><span class="price">$14.00</span><a href="https://wa.me/593999999999" class="dish-cta">Pedir →</a></div>
+        </div>
+      </div>
+
+      <div class="dish-card reveal">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=800&auto=format&fit=crop" alt="Menestra con curito de chancho"></div>
+        <div class="dish-body">
+          <h3>Menestra con curito de chancho</h3>
+          <div class="sub">No preguntes. Solo pruébala</div>
+          <p>Menestra de la casa con curito de chancho crocante. Un clásico local con nombre propio.</p>
+          <div class="dish-foot"><span class="price">$7.50</span><a href="https://wa.me/593999999999" class="dish-cta">Pedir →</a></div>
+        </div>
+      </div>
+
+      <div class="dish-card reveal">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800&auto=format&fit=crop" alt="El Menestrazo"></div>
+        <div class="dish-body">
+          <h3>El Menestrazo</h3>
+          <div class="sub">Para cuando vienes con hambre de verdad</div>
+          <p>Doble carne, doble menestra, arroz y todo lo que se pueda servir en un plato grande.</p>
+          <div class="dish-foot"><span class="price">$9.90</span><a href="https://wa.me/593999999999" class="dish-cta">Pedir →</a></div>
+        </div>
+      </div>
+
+      <div class="dish-card reveal">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=800&auto=format&fit=crop" alt="Patacones con queso"></div>
+        <div class="dish-body">
+          <h3>Patacones con queso</h3>
+          <div class="sub">El acompañante que roba cámara</div>
+          <p>Patacón verde, queso derretido y un toque de ajo. Ideal para empezar o para compartir.</p>
+          <div class="dish-foot"><span class="price">$4.50</span><a href="https://wa.me/593999999999" class="dish-cta">Pedir →</a></div>
+        </div>
+      </div>
+
+      <div class="dish-card reveal">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1541544181051-e46607bc22a4?q=80&w=800&auto=format&fit=crop" alt="Jugo natural"></div>
+        <div class="dish-body">
+          <h3>Jugo natural del día</h3>
+          <div class="sub">Para bajar la menestra</div>
+          <p>Fruta fresca de temporada, sin azúcar añadida si así lo prefieres.</p>
+          <div class="dish-foot"><span class="price">$2.50</span><a href="https://wa.me/593999999999" class="dish-cta">Pedir →</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MENU COMPLETO -->
+<section class="menu-section section-pad" id="menu">
+  <div class="container">
+    <div class="eyebrow eyebrow-terra reveal">Carta completa</div>
+    <h2 class="section-title reveal">Aquí hay menestra para todos.</h2>
+
+    <div class="filters" role="tablist" aria-label="Categorías del menú">
+      <button class="filter-btn active" data-cat="menestras">Menestras</button>
+      <button class="filter-btn" data-cat="parrilla">Parrilla</button>
+      <button class="filter-btn" data-cat="fuertes">Platos fuertes</button>
+      <button class="filter-btn" data-cat="acompanamientos">Acompañamientos</button>
+      <button class="filter-btn" data-cat="sopas">Sopas</button>
+      <button class="filter-btn" data-cat="bebidas">Bebidas</button>
+      <button class="filter-btn" data-cat="postres">Postres</button>
+    </div>
+
+    <div class="menu-list active" data-list="menestras">
+      <div class="menu-row"><div class="l"><h4>Menestra El Mathi</h4><div class="note">La consentida de la casa</div><p>Lenteja, arroz y carne a la parrilla.</p></div><div class="r">$6.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Menestra de carne</h4><p>Con arroz y tajada de plátano maduro.</p></div><div class="r">$5.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Menestra de pollo</h4><p>Pollo apanado o a la plancha, a elección.</p></div><div class="r">$5.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Menestra de chuleta</h4><p>Chuleta ahumada a la parrilla.</p></div><div class="r">$6.00</div></div>
+      <div class="menu-row"><div class="l"><h4>Menestra con curito de chancho</h4><div class="note">No preguntes. Solo pruébala</div><p>Curito crocante sobre la menestra clásica.</p></div><div class="r">$7.50</div></div>
+      <div class="menu-row"><div class="l"><h4>La menestra del Vargoso</h4><div class="note">La clásica que nunca falla</div><p>Doble porción, doble carne.</p></div><div class="r">$8.00</div></div>
+    </div>
+
+    <div class="menu-list" data-list="parrilla">
+      <div class="menu-row"><div class="l"><h4>Carne a la parrilla</h4><p>Con arroz, menestra y ensalada.</p></div><div class="r">$7.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Pollo a la parrilla</h4><p>Marinado 24 horas antes de la brasa.</p></div><div class="r">$6.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Chuleta a la parrilla</h4><p>Con guarnición del día.</p></div><div class="r">$7.00</div></div>
+      <div class="menu-row"><div class="l"><h4>Parrillada del Vargoso</h4><div class="note">Aquí sí se vino a comer</div><p>Mixto de carnes para compartir.</p></div><div class="r">$14.00</div></div>
+      <div class="menu-row"><div class="l"><h4>El Menestrazo</h4><div class="note">Hambre de verdad</div><p>Doble carne, doble menestra.</p></div><div class="r">$9.90</div></div>
+    </div>
+
+    <div class="menu-list" data-list="fuertes">
+      <div class="menu-row"><div class="l"><h4>Seco de pollo</h4><p>Con arroz amarillo y aguacate.</p></div><div class="r">$5.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Guatita mantense</h4><p>Salsa de maní al estilo de la casa.</p></div><div class="r">$6.00</div></div>
+      <div class="menu-row"><div class="l"><h4>Encebollado de pescado</h4><p>El infaltable de la costa.</p></div><div class="r">$5.00</div></div>
+      <div class="menu-row"><div class="l"><h4>Ceviche mantense</h4><p>Mixto o de camarón, a elección.</p></div><div class="r">$8.50</div></div>
+    </div>
+
+    <div class="menu-list" data-list="acompanamientos">
+      <div class="menu-row"><div class="l"><h4>Patacones con queso</h4><p>El que roba cámara.</p></div><div class="r">$4.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Arroz blanco</h4><p>Porción extra.</p></div><div class="r">$1.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Ensalada de la casa</h4><p>Vegetales frescos de temporada.</p></div><div class="r">$2.00</div></div>
+      <div class="menu-row"><div class="l"><h4>Maduro asado</h4><p>Con un toque de canela.</p></div><div class="r">$2.00</div></div>
+    </div>
+
+    <div class="menu-list" data-list="sopas">
+      <div class="menu-row"><div class="l"><h4>Sopa del día</h4><div class="note">Porque también hay días de sopa</div><p>Pregunta por la sopa de hoy.</p></div><div class="r">$3.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Caldo de gallina criolla</h4><p>Con yuca y cilantro.</p></div><div class="r">$4.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Sancocho de carne</h4><div class="note">¿Sopas o menestra? Hoy toca sopas</div><p>Con yuca, choclo y verde.</p></div><div class="r">$5.00</div></div>
+    </div>
+
+    <div class="menu-list" data-list="bebidas">
+      <div class="menu-row"><div class="l"><h4>Jugo natural del día</h4><p>Fruta fresca de temporada.</p></div><div class="r">$2.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Limonada de coco</h4><p>La favorita de la casa.</p></div><div class="r">$2.50</div></div>
+      <div class="menu-row"><div class="l"><h4>Gaseosa</h4><p>Personal, distintos sabores.</p></div><div class="r">$1.75</div></div>
+      <div class="menu-row"><div class="l"><h4>Cerveza nacional</h4><p>Bien fría.</p></div><div class="r">$2.75</div></div>
+    </div>
+
+    <div class="menu-list" data-list="postres">
+      <div class="menu-row"><div class="l"><h4>Tres leches de la casa</h4><p>Receta de la familia.</p></div><div class="r">$3.00</div></div>
+      <div class="menu-row"><div class="l"><h4>Dulce de higos con queso</h4><p>Clásico manabita.</p></div><div class="r">$3.00</div></div>
+      <div class="menu-row"><div class="l"><h4>Helado artesanal</h4><p>Sabores rotativos.</p></div><div class="r">$2.50</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story section-pad" id="historia">
+  <div class="container story-grid">
+    <div class="reveal">
+      <div class="story-year">2016</div>
+    </div>
+    <div class="reveal story-text">
+      <div class="eyebrow" style="color:var(--mostaza)">Desde 2016 en Manta</div>
+      <h2 class="section-title" style="margin-bottom:20px">Una esquina, una parrilla y una idea sencilla.</h2>
+      <p>Todo empezó junto a Plaza 2000, con pocas mesas y una menestra que la gente empezó a pedir por su nombre. No había plan de expansión, había una olla grande y ganas de que cada plato saliera bien.</p>
+      <p>Con los años la parrilla se hizo más grande, el local también, pero la receta no cambió. Seguimos siendo la esquina donde uno va a comer bien, sin vueltas.</p>
+      <div class="story-img reveal" style="margin-top:28px">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1200&auto=format&fit=crop" alt="Interior del restaurante La Esquina del Vargoso en Manta">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section-pad" id="por-que">
+  <div class="container">
+    <div class="eyebrow eyebrow-terra reveal">¿Por qué el Vargoso?</div>
+    <h2 class="section-title reveal">Cuatro razones. Todas con hambre.</h2>
+    <div class="pillars">
+      <div class="pillar reveal"><span class="ic">01</span><h3>Sabor de verdad</h3><p>Comida pensada para saber bien, no solo para verse bien.</p></div>
+      <div class="pillar reveal"><span class="ic">02</span><h3>Parrilla</h3><p>Carnes preparadas al carbón, con el punto justo.</p></div>
+      <div class="pillar reveal"><span class="ic">03</span><h3>Porciones que satisfacen</h3><p>Nadie se levanta de esta mesa con hambre.</p></div>
+      <div class="pillar reveal"><span class="ic">04</span><h3>Desde 2016</h3><p>Una historia construida en Manta, plato a plato.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section-pad" id="galeria">
+  <div class="container">
+    <div class="eyebrow eyebrow-terra reveal">Galería</div>
+    <h2 class="section-title reveal">La esquina, de cerca.</h2>
+    <div class="gallery-grid">
+      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=900&auto=format&fit=crop" alt="Carne a la parrilla"></div>
+      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1598515213692-5f252f4f8b21?q=80&w=700&auto=format&fit=crop" alt="Menestra servida"></div>
+      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=700&auto=format&fit=crop" alt="Ambiente del restaurante"></div>
+      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=700&auto=format&fit=crop" alt="Parrilla encendida"></div>
+      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=700&auto=format&fit=crop" alt="Detalle del plato"></div>
+      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1600891964373-2f1a1a6f6b1e?q=80&w=900&auto=format&fit=crop" alt="Personas disfrutando la comida"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-pad" style="background:var(--crema-soft)">
+  <div class="container">
+    <div class="eyebrow eyebrow-terra reveal">Lo que dicen</div>
+    <h2 class="section-title reveal">De boca en boca, literal.</h2>
+    <div class="test-grid">
+      <div class="test-card reveal"><div class="stars">★★★★★</div><p>Fui por curiosidad por el nombre del plato y me quedé por la menestra. Volví la semana siguiente.</p><div class="who">— Cliente de Manta</div></div>
+      <div class="test-card reveal"><div class="stars">★★★★★</div><p>La parrillada para compartir no alcanzó a compartirse. Y no nos arrepentimos.</p><div class="who">— Cliente frecuente</div></div>
+      <div class="test-card reveal"><div class="stars">★★★★★</div><p>El Mathi es exactamente lo que dicen que es. Ya sé qué voy a pedir cada vez que vuelva.</p><div class="who">— Visitante de Portoviejo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta section-pad">
+  <div class="container">
+    <div class="eyebrow reveal" style="color:var(--mostaza)">Redes</div>
+    <h2 class="section-title reveal">Del Vargoso a tu feed.</h2>
+    <div class="insta-grid">
+      <div class="insta-item reveal"><img src="https://images.unsplash.com/photo-1598515213692-5f252f4f8b21?q=80&w=400&auto=format&fit=crop" alt="Instagram del Vargoso 1"></div>
+      <div class="insta-item reveal"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" alt="Instagram del Vargoso 2"></div>
+      <div class="insta-item reveal"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=400&auto=format&fit=crop" alt="Instagram del Vargoso 3"></div>
+      <div class="insta-item reveal"><img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=400&auto=format&fit=crop" alt="Instagram del Vargoso 4"></div>
+      <div class="insta-item reveal"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=400&auto=format&fit=crop" alt="Instagram del Vargoso 5"></div>
+      <div class="insta-item reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=400&auto=format&fit=crop" alt="Instagram del Vargoso 6"></div>
+    </div>
+    <div style="margin-top:36px"><a href="#" class="btn-ghost" style="border-color:rgba(244,236,221,.4)">Síguenos en Instagram →</a></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-big section-pad">
+  <div class="container">
+    <h2 class="reveal">¿Ya se te antojó?</h2>
+    <p class="reveal">La parrilla está encendida.</p>
+    <div class="cta-actions reveal">
+      <a href="https://wa.me/593999999999" class="btn-light">Pedir ahora →</a>
+      <a href="#ubicacion" class="btn-outline-light">Cómo llegar</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section-pad" id="ubicacion">
+  <div class="container">
+    <div class="eyebrow eyebrow-terra reveal">Ubicación</div>
+    <h2 class="section-title reveal">Nos vemos en la esquina.</h2>
+    <div class="loc-grid">
+      <div class="map-box reveal">
+        <iframe src="https://www.google.com/maps?q=Plaza%202000%20Manta%20Ecuador&output=embed" width="100%" height="100%" style="border:0" loading="lazy" title="Mapa de La Esquina del Vargoso"></iframe>
+      </div>
+      <div class="reveal">
+        <div class="info-list">
+          <div class="info-row"><div class="lbl">Dirección</div><div class="val">Junto a Plaza 2000, Manta, Ecuador</div></div>
+          <div class="info-row"><div class="lbl">Horario</div><div class="val">Lunes — Domingo, 11:00 AM — 10:00 PM</div></div>
+          <div class="info-row"><div class="lbl">Teléfono</div><div class="val">+593 99 999 9999</div></div>
+          <div class="info-row"><div class="lbl">WhatsApp</div><div class="val">+593 99 999 9999</div></div>
+        </div>
+        <div class="hero-ctas" style="margin-top:30px">
+          <a href="https://www.google.com/maps?q=Plaza+2000+Manta+Ecuador" class="btn-primary">Cómo llegar</a>
+          <a href="https://wa.me/593999999999" class="btn-ghost" style="color:var(--carbon);border-color:var(--line-dark)">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="nav-logo"><span class="mark"></span>La Esquina del Vargoso</div>
+        <p>Desde 2016, poniendo sabor en Manta. Junto a Plaza 2000.</p>
+      </div>
+      <div>
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#historia">Nosotros</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/593999999999">WhatsApp</a></li>
+          <li><a href="tel:+593999999999">Llamar</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <ul>
+          <li>Lunes — Domingo</li>
+          <li>11:00 AM — 10:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 La Esquina del Vargoso. Todos los derechos reservados.</span>
+      <span>Aquí hay menestra para todos.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/593999999999" class="wa-float" aria-label="Escríbenos por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.35 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" fill="#fff" opacity="0"/><path d="M12 2a10 10 0 00-8.63 15.06L2 22l5.1-1.34A10 10 0 1012 2z" fill="#fff"/><path d="M12 2a10 10 0 00-8.63 15.06L2 22l5.1-1.34A10 10 0 1012 2z" fill="#25D366"/></svg>
+</a>
+
+<div class="mobile-cta-bar">
+  <a href="https://wa.me/593999999999" class="mp1">Pedir ahora</a>
+  <a href="#ubicacion" class="mp2">Cómo llegar</a>
+</div>
+
+<script>
+  // Navbar scroll state
+  const navbar = document.getElementById('navbar');
+  const heroBg = document.getElementById('heroBg');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 60) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled');
+    const y = Math.min(window.scrollY, 600);
+    heroBg.style.transform = `scale(${1.06 + y*0.00015}) translateY(${y*0.08}px)`;
+  }, {passive:true});
+
+  // Mobile menu
+  const burger = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Menu filters
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const menuLists = document.querySelectorAll('.menu-list');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      menuLists.forEach(l => l.classList.toggle('active', l.dataset.list === cat));
+    });
+  });
+</script>
+</body>
+</html>
